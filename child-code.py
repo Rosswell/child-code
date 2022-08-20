@@ -1,31 +1,32 @@
-def moveNoPen(x,y):
+def move_no_pen(x, y):
     penup()
     setposition(x,y)
     pendown()
     
-def drawLine(distance,angle1):
-    right(angle1)
+def draw_line(distance, angle):
+    move_no_pen(-25, 50)
+    color("red")
+    right(angle)
     forward(distance)
     
-def drawJ():
-    drawLine(-75,-90)
-    circle(25,-180)
-    drawLine(-10,-90)
+def draw_j():
+    draw_line(-75, -90)
+    circle(25, -180)
+    draw_line(-10, -90)
     right(90)
-    circle(35,100)
+    circle(35, 100)
     forward(75)
-    drawLine(10,-90)
+    draw_line(10, -90)
     
-arguments = ((115,-90),(10,-90),(52.5,-90),(50,90),(52.5,90),(10,-90))
-def drawH():
-    for i in range(2):
-        for v in range(6):
-            drawLine(arguments[v][0],arguments[v][1])
-            
+def draw_h():
+    move_no_pen(20, 50)
+    color("green")
+    distances = [115, 10, 52.5, 50, 52.5, 10]
+    angles = [-90, 90]
+    for angle in angles:
+        for distance in distances:
+            draw_line(distance, angle)
+
 speed(0)
-moveNoPen(-25,50)
-color("red")
-drawJ()
-moveNoPwn(20,50)
-color("green")
-drawH()
+draw_j()
+draw_h()
